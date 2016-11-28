@@ -1,0 +1,70 @@
+$ppr: 750px/16/1rem;
+.one-border-rem {
+    border-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAECAYAAABP2FU6AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAB5JREFUeNpiPnH8zH/G////MzAxAAHTyRNn/wMEGABpvQm9g9TJ1QAAAABJRU5ErkJggg==") 2 0 stretch;
+    border-width: 0 0 1px;
+}
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    width: 100%;
+    margin: 0;
+    background-color: #f8f8f8;
+    -webkit-tap-highlight-color: transparent;
+}
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+html,
+body,
+div,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+b,
+i,
+p,
+ul,
+li,
+span {
+    margin: 0;
+    padding: 0;
+}
+body,
+html {
+    height: 100%;
+    width: 100%;
+    background-color: #F5F5F9;
+}
+img {
+    border: none;
+}
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+}
+a {
+    text-decoration: none;
+    -webkit-touch-callout: none;
+}
+em,
+i {
+    font-style: normal;
+}
+li {
+    list-style: none;
+}
+@function rem($px, $base-font-size: $ppr*1rem) {
+    @if (unitless($px)){
+        @warn "Assuming #{$px} to be in pixels, attempting to convert it into pixels for you";
+        @return rem($px + 0px);
+    }
+    @else if (unit($px) == rem) {
+        @return $px;
+    }
+    @return ($px / $base-font-size) * 2rem;
+}
